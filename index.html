@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="keywords" content="程序员爱情表白, 时间轴, 爱情时间轴" />
+<meta name="description" content="史上最震撼的情人节神器，瞬间感动她（他），无论是否为程序员，快来制作属于自己的爱情时间轴吧，！！！@颜海镜 <http://yanhaijing.com> " />
+<title>Love diary</title>
+<link href="css/default.css" rel="stylesheet" />
+<link href="css/history.css" rel="stylesheet" />
+<!-- 添加百度统计 -->
+<script src="//yanhaijing.com/assets/plugin/tongji/baidu.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/garden_dev.js"></script>
+<script type="text/javascript" src="js/functions_dev.js"></script>
+<style>
+	.snow-container{position:fixed;width:100%;max-width:100%;z-index:99999;pointer-events:none;overflow:hidden;top:0;height:100%}
+.snow{display:block;position:absolute;z-index:2;top:0;right:0;bottom:0;left:0;pointer-events:none;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0);-webkit-animation:snow linear infinite;animation:snow linear infinite}
+.snow.foreground{background-image:url("https://dl6rt3mwcjzxg.cloudfront.net/assets/snow/snow-large-075d267ecbc42e3564c8ed43516dd557.png");-webkit-animation-duration:18s;animation-duration:13s}
+.snow.foreground.layered{-webkit-animation-delay:7.5s;animation-delay:7.5s}
+.snow.middleground{background-image:url(https://dl6rt3mwcjzxg.cloudfront.net/assets/snow/snow-medium-0b8a5e0732315b68e1f54185be7a1ad9.png);-webkit-animation-duration:25s;animation-duration:18s}
+.snow.middleground.layered{-webkit-animation-delay:12s;animation-delay:12s}
+.snow.background{background-image:url(https://dl6rt3mwcjzxg.cloudfront.net/assets/snow/snow-small-1ecd03b1fce08c24e064ff8c0a72c519.png);-webkit-animation-duration:30s;animation-duration:25s}
+.snow.background.layered{-webkit-animation-delay:15s;animation-delay:15s}
+@-webkit-keyframes snow{0%{-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{-webkit-transform:translate3d(5%,100%,0);transform:translate3d(5%,100%,0)}}
+@keyframes snow{0%{-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{-webkit-transform:translate3d(5%,100%,0);transform:translate3d(5%,100%,0)}}
+</style>
+</head>
+<body>
+	<div class='snow-container'>
+		<div class='snow foreground'></div>
+		<div class='snow foreground layered'></div>
+		<div class='snow middleground'></div>
+		<div class='snow middleground layered'></div>
+		<div class='snow background'></div>
+		<div class='snow background layered'></div>
+</div>
+<!-- 代码 开始 -->
+<div id="mainDiv">
+		<div id="content" style="width: 1110px; height: 625px; margin-top: 57px; margin-left: 165px;">
+			<div id="loveHeart">
+				<canvas id="garden" width="670" height="625"></canvas>
+				<div id="words">
+					<div id="messages">
+						Chúng mình đã bên nhau
+						<div id="elapseClock"><span class="digit">0</span> 年 <span class="digit">0</span> 月 <span class="digit">0</span> 天 <span class="digit">0</span> 时 <span class="digit">0</span> 分 <span class="digit">0</span> 秒</div>
+					</div>
+					<div id="loveu">
+						Tình yêu vẫn lớn dần từng giây!<br> 
+						<div class="signature"> ——  <a href="https://www.facebook.com/thanhdat.le.2909" target="_blank">Đ.❤  L.</a>  ——</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var displayMode = 1;
+		var together = new Date();
+		together.setFullYear(2023, 0, 0);
+		together.setHours(0);
+		together.setMinutes(0);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+		
+		$("#loveHeart").click(function(){
+			displayMode *= -1;
+			timeElapse(together, displayMode);
+		});
+		
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				adjustWordsPosition();
+				startHeartAnimation();
+			}, 100);
+
+			timeElapse(together, displayMode);
+			setInterval(function () {
+				timeElapse(together, displayMode);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+<div class="head-warp">
+  <div class="head">
+        <div class="nav-box">
+          <ul>
+              <li class="cur" style="text-align:center; font-size:62px; font-family:'微软雅黑', '宋体';color:#fff">Love Memories</li>
+          </ul>
+        </div>
+  </div>
+</div>
+<div class="main">
+	<div class="history">
+		<div class="history-date">
+	      	<ul>
+				<h2 class="first"><a href="#nogo">2022</a></h2>
+				<li class="green">
+					<h3>10/05</h3>
+					<dl>
+						<dt>
+							<div class="feed_arrow">
+							</div>		
+							<h4>
+								Chúng mình quen nhau thế nào
+							</h4>	
+							<div class="wrap">	
+								<img src="photo/anh1.jpg">
+								<p>Ai đó đã contact nhờ mình nè...
+								</p>
+							</div>									 
+						</dt>
+					</dl>
+				</li>									
+				<li class="green">
+					<h3>19/5</h3>
+					<dl>
+						<dt>
+							<div class="feed_arrow">
+							</div>		
+							<h4>
+								Quýt làm cam chịuuu
+							</h4>	
+							<div class="wrap">	
+								<img src="photo/anh2.jpg">
+								<p>Nhờ Giao ngáy nên chúng mình mới biết hóa ra là đồng hương :">
+								</p>
+							</div>									 
+						</dt>
+					</dl>
+				</li>									
+				<li class="green">
+					<h3>17/7</h3>
+					<dl>
+						<dt>
+							<div class="feed_arrow">
+							</div>		
+							<h4>
+								Từ teams chúng mình đã dọn qua messenger
+							</h4>	
+							<div class="wrap">	
+								<img src="photo/anh3.jpg">
+								<p>Tình cờ mình gặp ai đó trong bar. Mình còn ship ny tương lai với người khác mới đau chứ =(( Nhưng thật may là khoản này mình khá dốt nên không thành. Sau đó khi về thì ngta nhắn tin cho mình nè!!! (Ủa đi bar ko nhảy nhót đê kêu buồn ngủ mần chi :> )
+								</p>
+							</div>									 
+						</dt>
+					</dl>
+				</li>									
+				<li class="green">
+					<h3>...</h3>
+					<dl>
+						<dt>
+							<div class="feed_arrow">
+							</div>		
+							<h4>
+								Sau đó thì...
+							</h4>	
+							<div class="wrap">	
+								<img src="photo/anh4.jpg">
+								<p>Đến đây cho ny mình tự nhớ, sẽ tiếp tục update khi hết lười :))))
+								</p>
+							</div>									 
+						</dt>
+					</dl>
+				</li>									
+			</ul>
+    </div>		
+</div>
+
+<script src="js/jquery.js"></script> 
+<script src="js/main.js"></script>
+<!-- 代码 结束 -->
+<!-- <a class="bshareDiv" href="https://www.bshare.cn/share">分享按钮</a><script type="text/javascript" charset="utf-8" src="https://static.bshare.cn/b/button.js#uuid=9c63467b-a311-422d-82bb-485c01affd39&amp;style=3&amp;fs=4&amp;textcolor=#fff&amp;bgcolor=#9C3&amp;text=分享到"></script>               -->
+</body>
+</html>
