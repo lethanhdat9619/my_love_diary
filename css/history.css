@@ -181,7 +181,8 @@ a {
     font-size: 14px;
 }
 .history-date ul li.green h3 {
-    color: #1db702;
+    color: white;
+    font-weight: bold;
 }
 .history-date ul li.green h3 span {
     color: #a8dda3;
