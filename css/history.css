@@ -17,7 +17,7 @@ img, input, textarea {
 }
 a {
     text-decoration: none;
-    color: #787878;
+    color: white;
     outline: none;
 }
 a:hover {
@@ -237,4 +237,7 @@ a {
     *background: transparent !important;
     *font-size: 12px !important;
     _font-weight: normal !important;
+}
+.heartIcon {
+    color: red;
 }
